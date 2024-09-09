@@ -1,38 +1,179 @@
+/* App.css */
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
   color: white;
+  font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+  padding: 10px;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+p {
+  font-size: 1.2rem;
+}
+
+.buttons-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  background-color: #ff66cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff3399;
+}
+
+.message, .secret, .final-surprise {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.hearts {
+  font-size: 2rem;
+  animation: float 2s ease-in-out forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  font-size: 2rem;
+  animation: burst 2s ease-in-out forwards;
+}
+
+@keyframes burst {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.tap-area {
+  background-color: #ff99ff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.3rem;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.tap-area:hover {
+  background-color: #ff3399;
+}
+
+.emoji-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.emoji-rain span {
+  font-size: 2rem;
+  position: absolute;
+  animation: drop 4s linear infinite;
+  top: -10%;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  font-size: 1.5rem;
+  pointer-events: none;
+  animation: particle-move 2s linear forwards;
+}
+
+@keyframes particle-move {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+.collected-confetti {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.morning {
+  background: linear-gradient(to bottom, #ffccff, #ffe6e6);
+}
+
+.afternoon {
+  background: linear-gradient(to bottom, #ff99ff, #ff66cc);
+}
+
+.evening {
+  background: linear-gradient(to bottom, #ff66cc, #cc00cc);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p, .message, .secret, .final-surprise {
+    font-size: 1.2rem;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 1rem;
   }
 }
